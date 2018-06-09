@@ -1,0 +1,402 @@
+<div class="row">
+  <div class="col-sm-2">
+<!--
+  <div class="list-group">
+  <a href="#" class="list-group-item active">
+    <i class="glyphicon glyphicon-dashboard"></i> <span>Dashboard</span>
+  </a>
+  <a href="#" class="list-group-item">
+    <i class="glyphicon glyphicon-hdd"></i> <span>Active Servers</span>
+    <span class="gray-bg-color float-right">{{dashBord.activeServers}}</span>
+  </a>
+  <a href="#" class="list-group-item">
+    <i class="glyphicon glyphicon-inbox"></i> <span>Jobs & Queues</span>
+    <span class="gray-bg-color float-right">{{dashBord.jobs_queues}}</span>
+  </a>
+  <a href="#" class="list-group-item">
+    <i class="glyphicon glyphicon-none"></i> <span>Scheduled</span><span class="blue-bg-color float-right">{{dashBord.scheduled}}</span>
+  </a>
+  <a href="#" class="list-group-item">
+    <i class="glyphicon glyphicon-none"></i> <span>Processing</span><span class="orange-bg-color float-right">{{dashBord.processing}}</span>
+  </a>
+  <a href="#" class="list-group-item">
+    <i class="glyphicon glyphicon-none"></i> <span>Succeeded</span><span class="green-bg-color float-right">{{dashBord.succeeded}}</span>
+  </a>
+  <a href="#" class="list-group-item">
+    <i class="glyphicon glyphicon-none"></i> <span>Failed</span><span class="red-bg-color float-right">{{dashBord.failed}}</span></a>
+  <a href="#" class="list-group-item">
+    <i class="glyphicon glyphicon-none"></i> <span>Deleted</span><span class="gray-bg-color float-right">{{dashBord.deleted}}</span></a>
+</div>-->
+ <!-- <ul class="leftNav">
+      <li><i class="glyphicon glyphicon-dashboard"></i><span>Dashboard</span></li>
+      <li><i class="glyphicon glyphicon-hdd"></i><span>Active Servers</span><span class="gray-bg-color float-right">{{dashBord.activeServers}}</span></li>
+      <li><i class="glyphicon glyphicon-inbox"></i><span>Jobs & Queues</span><span class="gray-bg-color float-right">{{dashBord.jobs_queues}}</span></li>
+      <li><i class="glyphicon glyphicon-none"></i><span>Scheduled</span><span class="blue-bg-color float-right">{{dashBord.scheduled}}</span></li>
+      <li><i class="glyphicon glyphicon-none"></i><span>Processing</span><span class="orange-bg-color float-right">{{dashBord.processing}}</span></li>
+      <li><i class="glyphicon glyphicon-none"></i><span>Succeeded</span><span class="green-bg-color float-right">{{dashBord.succeeded}}</span></li>
+      <li><i class="glyphicon glyphicon-none"></i><span>Failed</span><span class="red-bg-color float-right">{{dashBord.failed}}</span></li>
+      <li><i class="glyphicon glyphicon-none"></i><span>Deleted</span><span class="gray-bg-color float-right">{{dashBord.deleted}}</span></li>
+    </ul> -->
+  </div>
+  
+  
+  <div class="col-sm-10">
+      
+      <div style="border:1px solid #eee;margin-left:10px;position: relative;">
+          <div class="red-color font-big" style="text-align: center">Scheduled Jobs</div>
+          <div class="pull-right">
+          <button class="btn btn-primary btn-small" (click)="openModal('custom-modal-2','')">Create Job</button>
+		  <!--<button class="btn btn-primary btn-small" (click)="openSubmitModal('createJob')">Cameo Admin Batch</button>-->
+          </div>
+          <hr>
+          <!--<table class="table table-striped">
+            <thead>
+              <tr>
+                <th>JOB ID</th>
+                <th>JOB NAME</th>
+                <th>DESCRIPTION</th>
+                <th>HISTORY</th>
+                <th>LAST RUN TIME(EST)</th>
+                <th>LAST RUN STATUS</th>
+                
+                <th>NEXT RUN TIME(EST)</th>
+                <th>RUN</th>
+                <th>SCHEDULE</th>
+                
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let job of jobsPerPage; let i = index" >
+                <td>{{job.jobID|slice:26:36}}</td>
+                <td id="job_history" ><span  matTooltip="Id:{{job.jobId}}|Desc:test descr">{{job.jobName}}</span></td>
+                <td>job descr</td>
+                <td><a  class="font "  (click)="openModal('job-status',job.jobID)">Click Here</a></td>
+                <td ><span *ngIf="job.jobCreationTime==null;else run">{{1521111085* 1000 | date:'yyyy-MM-dd HH:mm:ss'}}</span><ng-template #run>{{job.jobCreationTime* 1000 | date:'yyyy-MM-dd HH:mm:ss'}}</ng-template></td>
+                <td ><div class="font " style="cursor:pointer" [ngClass]="{' red-color':job.jobStatus =='FAILED',' green-color':job.jobStatus =='SUCCEEDED','orange-color':job.jobStatus =='PENDING','yellow-color':job.jobStatus =='SUBMITTED','ping-color':job.jobStatus =='RUNNABLE','light-blue':job.jobStatus =='STARTING','blue-color':job.jobStatus =='RUNNING','Blink':job.blink}" > {{job.jobStatus}}</div></td>
+                <td><span *ngIf="job.nextScheduleTime==null;else sch">{{1525522311 * 1000 | date:'yyyy-MM-dd HH:mm:ss'}}</span><ng-template #sch>{{job.nextScheduleTime* 1000 | date:'yyyy-MM-dd HH:mm:ss'}}</ng-template></td>
+                <td><button type="button" class="btn btn-success"><span *ngIf="job.jobName!='ExecuteS3ShellScrupt';else s3" matTooltip="Run a simple job that executes a shell command"  (click)="runJob(job.jobID)">RUN NOW</span><ng-template #s3><span matTooltip="Executes a shell script from S3"  (click)="runBatchJob(job.jobID)">RUN NOW</span></ng-template></button></td>
+                <td><button  class="btn btn-warning" (click)="openModal('custom-modal-1',job.jobID)" >SCHEDULE</button></td>
+              </tr>
+            </tbody>
+          </table> -->
+         
+           <!--<p-paginator [rows]="5" [totalRecords]="jobsLength" [rowsPerPageOptions]="[5,10,15,20,30]" (onPageChange)="paginate($event)"></p-paginator>-->
+        </div>
+  </div>
+</div>
+
+
+
+
+<div>
+    <cusmodal id="job-details">
+      <div class="modals">
+          <div class="modal-body"  >
+                <div >
+                       <span class="font">JobName:</span><span class="font blue-color">{{currentJob.jobName}}</span>
+                </div>
+                <div >
+                    <span class="font">JobName:</span><span class="font blue-color">{{currentJob.jobStatus}}</span>
+             </div>
+             <div >
+                <span class="font">JobName:</span><span class="font blue-color">{{currentJob.id}}</span>
+         </div>
+
+             <div style="text-align: center" class="form-group"><button  class="btn btn-primary" (click)="closeModal('job-details');">OK</button></div>
+          </div>
+      </div>
+        
+      <div class="modal-background"></div>
+    </cusmodal>
+    </div>
+
+
+<div>
+    <cusmodal id="job-status">
+      <div class="modals">
+          <div class="modal-body"  >
+                <div >
+                       <span class="font">JobName:</span><span class="font blue-color">{{currentJob.jobName}}</span>
+                </div>
+                <div>
+<app-job-submit-detail>loading</app-job-submit-detail>
+                </div>
+             <div style="text-align: center" class="form-group"><button  class="btn btn-primary" (click)="closeModal('job-status');">OK</button></div>
+          </div>
+      </div>
+        
+      <div class="modal-background"></div>
+    </cusmodal>
+    </div>
+  <div>
+
+<!--<div>
+  <cusmodal id="createJob">
+    <div class="modals">
+        <div class="modal-body"  >
+           <div >
+            <form  class="form-inline" (ngSubmit)="submitJob('createJob')" [formGroup]="fileUpload" >
+                <div class="font"><h4>Cameo Admin Batch</h4></div>
+                <span class="glyphicon glyphicon-remove cross-right" (click)="closeModal('createJob');"></span>
+                <div style="border:1px solid #999999f5">
+                <fieldset class="scheduler-border">
+                    <legend class="scheduler-border">File Upload</legend>
+                    <div class="form-group">
+                        <label class="col-sm-4" for="file">File:</label>
+                        <div class="col-sm-8">
+                            <input  class="white-color" accept="{{acc_file_type}}" name="input_file" type="file" (change)="selectFile($event)" formControlName="input_file"   >
+                            <div class="alert alert-danger font" *ngIf="showFileErr">choose file first</div>
+                        </div>
+                           
+                    </div>
+                    <div class="">
+                        <label class="col-sm-3" for="file">File Types:</label>
+                        <div class="col-sm-9"> 
+                          <div  *ngFor="let type of fileTypes;let i=index" >
+                            <input class="form-control checkbox"  name="file_type" type="checkbox" [checked]="type.value"  value="{{type.type}}"formControlName="input_file_type"  (change)="selectedFileTypes($event,type)" ><span class="padding-li white-color">{{type.key}}</span>
+                         </div>
+                        </div>
+                         
+                    </div>
+                </fieldset>
+               
+                </div>
+                    <div  style="text-align: center">
+                        <button type="submit" class="btn btn-primary">Upload </button>
+                    </div>
+             </form>
+          </div>
+        </div>
+    </div>
+    <div class="modal-background"></div>
+  </cusmodal>
+  </div>
+ --> 
+ 
+<div>
+<cusmodal id="job-history">
+  <div class="modals">
+      <div class="modal-body">
+         <div class="row">
+            <div class="form-group">
+              <div class="left left-margin">Job Name:<span class="blue-color font">{{history_name.name}}</span></div>
+               <div class="left left-margin">Success-Count:<span class="green-color font">{{history_name.success}}</span></div>
+                <div class="left left-margin">Fail-Count:<span class="red-color font">{{history_name.fail}}</span></div>
+            </div>
+            <div class="form-group">
+                <label class="left-margin">Filter By Date:</label>
+                <mat-form-field class="date-picker">
+                    <input matInput [max]="maxDate"  [matDatepicker]="historyJobStartDate" placeholder="Choose start date" [(ngModel)]="history.startDate">
+                    <mat-datepicker-toggle matSuffix [for]="historyJobStartDate"></mat-datepicker-toggle>
+                    <mat-datepicker #historyJobStartDate startView="year" [startAt]="historyJobStartDate"></mat-datepicker>
+                </mat-form-field>
+                 
+                <mat-form-field class="date-picker">
+                    <input matInput [max]="maxDate" [min]="history.startDate"  [matDatepicker]="historyJobEndDate" placeholder="Choose start date" [(ngModel)]="history.endDate">
+                    <mat-datepicker-toggle matSuffix [for]="historyJobEndDate"></mat-datepicker-toggle>
+                    <mat-datepicker #historyJobEndDate startView="year" [startAt]="historyJobEndDate"></mat-datepicker>
+                </mat-form-field>
+                
+                <input class="btn btn-primary" type="button" (click)="FilterByName()" value="Apply"/>
+            </div>
+            <div  class="form-group">
+                <label class="left-margin">Filter By JobStatus:</label>
+                <input type="radio"  name="staus" value="SUCCEEDED" [(ngModel)]="history_status" (change)="FilterByStatus()"><span class="padding-li">Succeeded</span>
+                <input type="radio" name="staus" value="FAILED" [(ngModel)]="history_status" (change)="FilterByStatus()"><span  class="padding-li">Failed</span>
+                <input type="radio" name="staus" value="ALL" [(ngModel)]="history_status" (change)="FilterByStatus()"><span  class="padding-li">All</span>
+            
+            </div>
+        </div>
+      
+        <div class='row'>
+        <div class="panel panel-default" >
+        <!-- Default panel contents -->
+           <div class='panel-body'>
+            <table class="table table-striped">
+               <thead>
+                 <tr>
+                  <th>RUN TIME</th>
+                  <th>JOB STATUS</th>
+                 </tr>
+               </thead>
+               <tbody>
+                  <tr *ngFor="let job of items; let i = index">
+                      <td>{{job.runtime * 1000 | date:'yyyy-MM-dd HH:mm:ss'}}</td>
+                      <td><div class="font" [ngClass]="{' red-color':job.status =='FAILED',' green-color':job.status =='SUCCEEDED'}"> {{job.status}}</div></td>
+                  </tr>
+               </tbody>
+            </table>
+            <div class="btn-toolbar" role="toolbar" style="margin: 0;">
+             <div class="btn-group">
+                  <label style="margin-top:10px">Page {{currentIndex}}/{{pageNumber}}</label>
+               </div>
+               <div class="btn-group pull-right">
+                  <ul class="pagination" >
+                     <li [ngClass]="{'disabled': (currentIndex == 1 || pageNumber == 0)}" ><a  (click)="prevPage()" >Prev</a></li>
+                        <li *ngFor="let page of pagesIndex"  [ngClass]="{'active': (currentIndex == page)}">
+                           <a (click)="setPage(page)" >{{page}}</a>
+                        </li>
+                     <li [ngClass]="{'disabled': (currentIndex == pageNumber || pageNumber == 0)}" ><a   (click)="nextPage()">Next</a></li>
+                  </ul>
+               </div>
+            </div>
+         </div>
+        </div>  
+        </div>
+        <div style="text-align: center" class="form-group"><button  class="btn btn-primary" (click)="closeModal('job-history');">OK</button></div>
+        
+      </div>
+  </div>
+  <div class="modal-background"></div>
+</cusmodal>
+</div>
+<!--
+<div>
+    <cusmodal id="custom-modal-1">
+        <div class="modals">
+            <div class="modal-body">
+                <div class="form-group"><h3>Schedule Job</h3></div><hr>
+                <div class="form-group" >
+                    <label class="col-md-4">Job Name</label>
+                    <div class="col-md-8 blue-color font">{{schedule.jobName}}</div>
+                </div>
+                  <hr>
+                  <div class="form-group" >
+                    <label for="Shedule" class="col-md-4" style="padding-top:30px">EST Schedule Time</label>
+                    <div class="col-md-8">
+                      <ngb-timepicker [(ngModel)]="jobSchedule.scheduleTime" [meridian]=flase></ngb-timepicker>
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="form-group" >
+                        <label for="category" class="col-md-4">Recurrence</label> 
+                          <div class="col-md-8"> 
+                            <ul class="category">
+                              <li ><input type="radio" name="category" value="Daily" [(ngModel)]="jobSchedule.recurrence.type"><span class="padding-li">Daily</span></li>
+                              <li ><input type="radio" name="category" value="Weekly" [(ngModel)]="jobSchedule.recurrence.type"><span  class="padding-li">Weekly</span></li>
+                            </ul>
+                            
+                          </div>
+                      
+                  </div>
+                  <div class="form-group" >
+                      <div class="col-md-offset-4 col-md-8"> 
+                          <ul class="category" *ngIf="jobSchedule.recurrence.type=='Weekly'">
+                          <li *ngFor="let week of weeks;let i=index">
+                              <input type="checkbox" (change)="daysOfWeek($event,week)" ><span  class="padding-li">{{week.day}}</span>
+                            </li>
+                        </ul> 
+                      </div>
+                  </div>
+                  <hr>
+                  <div class="form-group">
+                      <label for="Range" class="col-md-4" style="padding-top: 15px;">Range of Recurrence</label>
+                      <div class="col-md-8">
+                          <mat-form-field class="date-picker">
+                              <input matInput [min]="minDate" [matDatepicker]="startDate" placeholder="Choose start date" [(ngModel)]="jobSchedule.recurrenceRange.startDate">
+                              <mat-datepicker-toggle matSuffix [for]="startDate"></mat-datepicker-toggle>
+                              <mat-datepicker #startDate startView="year" [startAt]="startDate"></mat-datepicker>
+                          </mat-form-field>
+                          <mat-form-field class="date-picker">
+                              <input matInput [min]="minDate" [matDatepicker]="endDate" placeholder="Choose end date" [(ngModel)]="jobSchedule.recurrenceRange.endDate">
+                              <mat-datepicker-toggle matSuffix [for]="endDate"></mat-datepicker-toggle>
+                              <mat-datepicker #endDate startView="year" [startAt]="endDate"></mat-datepicker>
+                          </mat-form-field>
+                      </div>
+                     
+                    </div>
+                    
+                  <div class="form-group" style="text-align: center">
+                    <input type="button" class=" btn btn-primary" value="Save" (click)="nextSchedule(jobSchedule)">
+                    <button class="btn btn-primary" (click)="closeModal('custom-modal-1');">Cancel</button>
+                  </div>
+                  
+            </div>
+        </div>
+        <div class="modal-background"></div>
+      </cusmodal>
+
+</div>-->
+<div>
+    <cusmodal id="custom-modal-2">
+        <div class="modals">
+            <div class="modal-body">
+                <div class="form-group"><h3>Create Job</h3></div><hr>
+                <div class="form-group" >
+                    <div class="col-md-12">
+                        <mat-form-field class="example-full-width">
+                          <input matInput placeholder="Job Name" value="" [(ngModel)]="jobName">
+                        </mat-form-field>
+
+                    </div>
+                </div>
+                  <hr>
+                  <div class="form-group" >
+                        <label for="category" class="col-md-4">Frequency</label> 
+                          <div class="col-md-8"> 
+<!--                             <ul class="category">
+                              <li ><input type="radio" name="category" value="Monthly" [(ngModel)]="jobScheduleNew.frequency.type"><span>Monthly</span></li>
+                              <li ><input type="radio" name="category" value="Weekly" [(ngModel)]="jobScheduleNew.frequency.type"><span>Weekly</span></li>
+                              <li ><input type="radio" name="category" value="Daily" [(ngModel)]="jobScheduleNew.frequency.type"><span>Daily</span></li>
+
+                            </ul> -->
+                            <mat-radio-group class="example-radio-group" [(ngModel)]="jobScheduleNew.frequency.type">
+                              <mat-radio-button class="example-radio-button" *ngFor="let season of seasons" 
+                                [value]="season.name">
+                                {{season.name}}
+                              </mat-radio-button>
+                            </mat-radio-group>                            
+                          </div>
+                      
+                  </div>
+                  <div class="form-group"  *ngIf="jobScheduleNew.frequency.type=='Monthly'">
+                      <div class="col-md-offset-4 col-md-8"> 
+                      <div>
+                          <mat-form-field class="date-picker">
+                              <input matInput [min]="minDate" [matDatepicker]="startDateNew" placeholder="Choose start date" [(ngModel)]="jobScheduleNew.recurrenceRange.startDate">
+                              <mat-datepicker-toggle matSuffix [for]="startDateNew"></mat-datepicker-toggle>
+                              <mat-datepicker #startDateNew startView="year" [startAt]="startDateNew"></mat-datepicker>
+                          </mat-form-field>
+                          <mat-form-field class="date-picker">
+                              <input matInput [min]="minDate" [matDatepicker]="endDateNew" placeholder="Choose end date" [(ngModel)]="jobScheduleNew.recurrenceRange.endDate">
+                              <mat-datepicker-toggle matSuffix [for]="endDateNew"></mat-datepicker-toggle>
+                              <mat-datepicker #endDateNew startView="year" [startAt]="endDateNew"></mat-datepicker>
+                          </mat-form-field>
+                      </div>
+                      </div>
+                  </div>
+                  <div class="form-group"  *ngIf="jobScheduleNew.frequency.type=='Weekly'">
+                      <div class="col-md-offset-4 col-md-8"> 
+                          <ul class="category">
+                          <li *ngFor="let week of weeks;let i=index">
+
+                                  <mat-checkbox class="example-margin" (change)="daysOfWeekNew($event,week)">{{week.day}}</mat-checkbox>
+
+                              <!-- <input type="checkbox" (change)="daysOfWeekNew($event,week)" ><span  class="padding-li">{{week.day}}</span> -->
+                            </li>
+                        </ul> 
+                      </div>
+                  </div>
+                  
+                <!--<div class="form-group" >
+                    <div class="col-md-12">
+                        <mat-form-field class="example-full-width">
+                          <input matInput placeholder="Program" value="" [(ngModel)]="program">
+                        </mat-form-field>
+
+                    </div>
+                </div> -->
+                  <hr> 
+                  <div class="form-group" style="text-align: center">
+                  <!--  <input type="button" class=" btn btn-primary" value="Save" (click)="nextScheduleNew(jobScheduleNew)">-->
+					<button class="btn btn-primary" (click)="nextScheduleNew(jobScheduleNew)">Save</button>
+					<button class="btn btn-primary" (click)="resetModal();">Reset</button>
+					<button class="btn btn-primary" (click)="closeModal('custom-modal-2');">Cancel</button>
+                  </div>
+                  
+            </div>
+        </div>
+        <div class="modal-background"></div>
+      </cusmodal>
+
+</div>
